@@ -55,11 +55,11 @@ let
 
 
       # Install Flatpak applications
-      ${notifyUsersScript} "Google Chrome wird installiert" "Bitte habe etwas Geduld während wir Google Chrome installieren..."
-      ${pkgs.flatpak}/bin/flatpak install flathub com.google.Chrome -y
+      #${notifyUsersScript} "Google Chrome wird installiert" "Bitte habe etwas Geduld während wir Google Chrome installieren..."
+      #${pkgs.flatpak}/bin/flatpak install flathub com.google.Chrome -y
 
-      ${notifyUsersScript} "Zoom wird installiert" "Bitte habe etwas Geduld während wir Zoom installieren..."
-      ${pkgs.flatpak}/bin/flatpak install flathub us.zoom.Zoom -y
+      #${notifyUsersScript} "Zoom wird installiert" "Bitte habe etwas Geduld während wir Zoom installieren..."
+      #${pkgs.flatpak}/bin/flatpak install flathub us.zoom.Zoom -y
 
       ${notifyUsersScript} "LibreOffice wird installiert" "Bitte habe etwas Geduld während wir LibreOffice installieren..."
       ${pkgs.flatpak}/bin/flatpak install flathub org.libreoffice.LibreOffice -y
@@ -103,14 +103,14 @@ in
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome
 
-    (makeDesktopItem {
-      name = "zoommtg-handler";
-      desktopName = "Zoom URI Handler";
-      exec = "gtk-launch us.zoom.Zoom %u";
-      mimeTypes = [ "x-scheme-handler/zoommtg" ];
-      noDisplay = true;
-      type = "Application";
-    })
+    # (makeDesktopItem {
+    #   name = "zoommtg-handler";
+    #   desktopName = "Zoom URI Handler";
+    #   exec = "gtk-launch us.zoom.Zoom %u";
+    #   mimeTypes = [ "x-scheme-handler/zoommtg" ];
+    #   noDisplay = true;
+    #   type = "Application";
+    # })
   ];
 
   services.flatpak.enable = true;
@@ -196,9 +196,9 @@ in
       ${pkgs.nixos-rebuild}/bin/nixos-rebuild boot --upgrade
 
       # Fix for zoom flatpak
-      ${pkgs.flatpak}/bin/flatpak override --env=ZYPAK_ZYGOTE_STRATEGY_SPAWN=0 us.zoom.Zoom
+      # ${pkgs.flatpak}/bin/flatpak override --env=ZYPAK_ZYGOTE_STRATEGY_SPAWN=0 us.zoom.Zoom
 
-      ${notifyUsersScript} "Systemupdates erfolreich installiert" "Updates erfolgreich installiert! Starte deinen Computer bitte neu, sobald es dir passt, um die Updates anzuwenden."
+      ${notifyUsersScript} "Systemupdates erfolgreich installiert" "Systemupdates erfolgreich installiert! Starte deinen Computer bitte neu, sobald es dir passt, um die Updates anzuwenden."
     '';
     serviceConfig = {
       Type = "oneshot";
