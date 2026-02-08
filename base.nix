@@ -55,13 +55,13 @@ let
 
 
       # Install Flatpak applications
-      ${notifyUsersScript} "Installing Google Chrome" "Please wait while we install Google Chrome..."
+      ${notifyUsersScript} "Installing Google Chrome" "Bitte habe etwas Geduld während wir Google Chrome installieren..."
       ${pkgs.flatpak}/bin/flatpak install flathub com.google.Chrome -y
 
-      ${notifyUsersScript} "Installing Zoom" "Please wait while we install Zoom..."
+      ${notifyUsersScript} "Installing Zoom" "Bitte habe etwas Geduld während wir Zoom installieren..."
       ${pkgs.flatpak}/bin/flatpak install flathub us.zoom.Zoom -y
 
-      ${notifyUsersScript} "Installing LibreOffice" "Please wait while we install LibreOffice..."
+      ${notifyUsersScript} "Installiere LibreOffice" "Bitte habe etwas Geduld während wir LibreOffice installieren..."
       ${pkgs.flatpak}/bin/flatpak install flathub org.libreoffice.LibreOffice -y
 
       # Fix for zoom flatpak
@@ -81,7 +81,7 @@ let
         cp /etc/nixbook/config/flatpak_links/* /home/$user/Desktop/
         chown $user /home/$user/Desktop/*
       
-        ${notifyUsersScript} "Installing Applications Complete" "Please Log out or restart to start using Nixbook and it's applications!"
+        ${notifyUsersScript} "Anwendungen erfolgreich installiert" "Bitte melde dich ab oder starte deinen Computer neu, um Nixbook und seine Anwendungen nutzen zu können!"
       done
     fi
 
@@ -191,14 +191,14 @@ in
 
       ${updateGitScript}
 
-      ${notifyUsersScript} "Starting System Updates" "System updates are installing in the background.  You can continue to use your computer while these are running."
+      ${notifyUsersScript} "Systemupdates werden installiert" "Es werden gerade Systemupdates im Hintergrund installiert. Du kannst deinen Computer währendessen weiterverwenden."
             
       ${pkgs.nixos-rebuild}/bin/nixos-rebuild boot --upgrade
 
       # Fix for zoom flatpak
       ${pkgs.flatpak}/bin/flatpak override --env=ZYPAK_ZYGOTE_STRATEGY_SPAWN=0 us.zoom.Zoom
 
-      ${notifyUsersScript} "System Updates Complete" "Updates are complete!  Simply reboot the computer whenever is convenient to apply updates."
+      ${notifyUsersScript} "Systemupdates erfolreich installiert" "Updates erfolgreich installiert! Starte deinen Computer bitte neu, sobald es dir passt, um die Updates anzuwenden."
     '';
     serviceConfig = {
       Type = "oneshot";

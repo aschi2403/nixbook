@@ -98,11 +98,11 @@ in
 
       ${updateGitScript}
 
-      ${notifyUsersScript} "Starting System Updates" "System updates are installing in the background.  You can continue to use your computer while these are running."
+      ${notifyUsersScript} "Systemupdates werden installiert" "Es werden gerade Systemupdates im Hintergrund installiert. Du kannst deinen Computer währendessen weiterverwenden."
             
       ${pkgs.nixos-rebuild}/bin/nixos-rebuild boot --upgrade
 
-      ${notifyUsersScript} "System Updates Complete" "Updates are complete!  Simply reboot the computer whenever is convenient to apply updates."
+      ${notifyUsersScript} "Systemupdates erfolreich installiert" "Updates erfolgreich installiert! Starte deinen Computer bitte neu, sobald es dir passt, um die Updates anzuwenden."
     '';
     serviceConfig = {
       Type = "oneshot";
