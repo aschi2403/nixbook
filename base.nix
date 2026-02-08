@@ -55,13 +55,13 @@ let
 
 
       # Install Flatpak applications
-      ${notifyUsersScript} "Installing Google Chrome" "Bitte habe etwas Geduld während wir Google Chrome installieren..."
+      ${notifyUsersScript} "Google Chrome wird installiert" "Bitte habe etwas Geduld während wir Google Chrome installieren..."
       ${pkgs.flatpak}/bin/flatpak install flathub com.google.Chrome -y
 
-      ${notifyUsersScript} "Installing Zoom" "Bitte habe etwas Geduld während wir Zoom installieren..."
+      ${notifyUsersScript} "Zoom wird installiert" "Bitte habe etwas Geduld während wir Zoom installieren..."
       ${pkgs.flatpak}/bin/flatpak install flathub us.zoom.Zoom -y
 
-      ${notifyUsersScript} "Installiere LibreOffice" "Bitte habe etwas Geduld während wir LibreOffice installieren..."
+      ${notifyUsersScript} "LibreOffice wird installiert" "Bitte habe etwas Geduld während wir LibreOffice installieren..."
       ${pkgs.flatpak}/bin/flatpak install flathub org.libreoffice.LibreOffice -y
 
       # Fix for zoom flatpak
