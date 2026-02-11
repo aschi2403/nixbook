@@ -102,7 +102,7 @@ in
             
       ${pkgs.nixos-rebuild}/bin/nixos-rebuild boot --upgrade
 
-      ${notifyUsersScript} "Systemupdates erfolreich installiert" "Updates erfolgreich installiert! Starte deinen Computer bitte neu, sobald es dir passt, um die Updates anzuwenden."
+      ${notifyUsersScript} "Systemupdates erfolgreich installiert" "Systemupdates erfolgreich installiert! Starte deinen Computer bitte neu, sobald es dir passt, um die Updates anzuwenden."
     '';
     serviceConfig = {
       Type = "oneshot";
